@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import prismaRandom from "prisma-extension-random";
 import invariant from "tiny-invariant";
 
 import { singleton } from "./singleton.server";
@@ -41,7 +42,7 @@ function getPrismaClient() {
         url: databaseUrl.toString(),
       },
     },
-  });
+  }).$extends(prismaRandom());
   // connect eagerly
   client.$connect();
 

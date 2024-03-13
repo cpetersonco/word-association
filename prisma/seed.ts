@@ -40,6 +40,18 @@ async function seed() {
     },
   });
 
+  await prisma.association.create({
+    data: {
+      words: ["elephant"],
+    },
+  });
+
+  await prisma.association.create({
+    data: {
+      words: ["graphite"],
+    },
+  });
+
   console.log(`Database has been seeded. 🌱`);
 }
 
