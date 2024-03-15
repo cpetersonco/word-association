@@ -17,9 +17,10 @@ export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
   const id = formData.get("id") as string;
   const word = formData.get("word") as string;
+  console.log({ id, word });
 
   // TODO: Validate that the submission doesn't match the preceding word, e.g. ["man", "woman", "man"]
-  addWordToAssociation({
+  await addWordToAssociation({
     id: id,
     word: word,
   });

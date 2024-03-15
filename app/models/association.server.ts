@@ -17,8 +17,11 @@ interface AddWordToAssociationType {
   word: string;
 }
 
-export function addWordToAssociation({ id, word }: AddWordToAssociationType) {
-  return prisma.association.update({
+export async function addWordToAssociation({
+  id,
+  word,
+}: AddWordToAssociationType) {
+  return await prisma.association.update({
     where: { id: id },
     data: { words: { push: word } },
   });
