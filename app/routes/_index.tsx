@@ -32,6 +32,7 @@ export default function Index() {
   const isAdding =
     navigation.state === "submitting" &&
     navigation.formData?.get("_action") === "create";
+  console.log({ association });
 
   // clear input on submission
   const formRef = useRef(null);
